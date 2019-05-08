@@ -2,8 +2,8 @@
 using System.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 using ElemCollection = System.Collections.ObjectModel.ReadOnlyCollection<OpenQA.Selenium.IWebElement>;
+using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace BB_Assignment
 {
@@ -28,35 +28,9 @@ namespace BB_Assignment
             Driver.FindElement(selector).SendKeys(Keys.Enter);
         }
 
-        public bool IsClickable(By selector) 
-        {
-            var element = Driver.FindElement(selector);
-            return element.Enabled;
-        }
-
         public void SendKeys(By selector, string keys) 
         {
             Wait.Until(ExpectedConditions.ElementIsVisible(selector)).SendKeys(keys);
-        }
-
-        public bool IsDisplayed(By selector) 
-        {
-            return Wait.Until(ExpectedConditions.ElementIsVisible(selector)).Displayed;
-        }
-
-        public void Clear(By selector) 
-        {
-            Wait.Until(ExpectedConditions.ElementIsVisible(selector)).Clear();
-        }
-
-        public string GetText(By selector) 
-        {
-            Wait.Until(ExpectedConditions.ElementIsVisible(selector));
-
-            var element = Driver.FindElement(selector);
-            string text = element.Text;
-
-            return text;
         }
 
         /// <summary>
@@ -82,17 +56,5 @@ namespace BB_Assignment
 
             return texts;
          }
-    }
-
-    public static class CreateRandomString 
-    {
-        private static readonly Random _random = new Random();
-
-        public static string RandomString(int length) 
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            return new string(Enumerable.Repeat(chars, length)
-              .Select(s => s[_random.Next(s.Length)]).ToArray());
-        }
     }
 }

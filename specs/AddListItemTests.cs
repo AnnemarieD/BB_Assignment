@@ -29,7 +29,7 @@ namespace BB_Assignment.specs
 
             // Act
             HomePage.AddListItem("Start testing");
-            var actualList = HomePage.GetAllListItems();
+            var actualList = HomePage.GetAllActiveListItems();
             string[] expectedList = new string[]
             {
                 "Start testing"
@@ -47,12 +47,12 @@ namespace BB_Assignment.specs
             HomePage.RemoveAllListItems();
 
             // Act
-            HomePage.AddListItem("Can I add some code here as well?");
+            HomePage.AddListItem("Can I add some script here as well?");
             HomePage.AddListItem("No I can't!%$#>");
-            var actualList = HomePage.GetAllListItems();
+            var actualList = HomePage.GetAllActiveListItems();
             string[] expectedList = new string[]
             {
-                "Can I add some code here as well?",
+                "Can I add some script here as well?",
                 "No I can't!%$#>"
             };
 

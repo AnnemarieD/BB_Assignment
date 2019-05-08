@@ -27,7 +27,7 @@ namespace BB_Assignment.specs
 
             // Act
             HomePage.MarkListItem(3);
-            int actualNumberOfActiveListItems = HomePage.GetAllListItems().Length;
+            int actualNumberOfActiveListItems = HomePage.GetAllActiveListItems().Length;
             int expectedNumberOfActiveListItems = 6;
 
             // Assert
@@ -38,11 +38,34 @@ namespace BB_Assignment.specs
         public void MarkMultipleListItems() 
         {
             // Arrange
+            // Situation to create: there are 10 list items on the to do list
+            HomePage.Navigate();
+            HomePage.AddListItem("8th list item");
+            HomePage.AddListItem("9th list item");
+            HomePage.AddListItem("10th list item");
+
             // Act
+            HomePage.MarkListItem(0);
+            HomePage.MarkListItem(9);
+            HomePage.MarkListItem(6);
+            HomePage.MarkListItem(1);
+            HomePage.MarkListItem(4);
+            var actualListOfDoneListItems = HomePage.GetAllDoneListItems();
+            string[] expectedListOfDoneListItems = new string[]
+            {
+                "Drag the list, Example template, over this lists title above.",
+                "All changes are saved locally, automatically.",
+                "All done. Tick all the items off then hit the trash icon below.",
+                "10th list item",
+                "Howdy. Let's get you up and running."
+            };
+
             // Assert
+            Assert.Equal(expectedListOfDoneListItems, actualListOfDoneListItems);
         }
 
-        public void Dispose() {
+        public void Dispose() 
+        {
             Driver.Quit();
         }
 
