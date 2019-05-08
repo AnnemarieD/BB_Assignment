@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Xunit;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -7,7 +6,7 @@ using BB_Assignment.pageObjects;
 using System.Reflection;
 using System.IO;
 
-namespace BB_Assignment.specs 
+namespace BB_Assignment.specs
 {
     public class AddListItemTests : IDisposable 
     {

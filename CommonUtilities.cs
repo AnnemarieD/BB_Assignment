@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using ElemCollection = System.Collections.ObjectModel.ReadOnlyCollection<OpenQA.Selenium.IWebElement>;

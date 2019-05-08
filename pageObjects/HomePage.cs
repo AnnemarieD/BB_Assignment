@@ -1,8 +1,7 @@
 ﻿using OpenQA.Selenium;
-using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 using ElemCollection = System.Collections.ObjectModel.ReadOnlyCollection<OpenQA.Selenium.IWebElement>;
 
-namespace BB_Assignment.pageObjects 
+namespace BB_Assignment.pageObjects
 {
     public class HomePage : CommonUtilities
     {
