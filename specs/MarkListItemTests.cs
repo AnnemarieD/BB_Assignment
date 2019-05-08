@@ -24,11 +24,14 @@ namespace BB_Assignment.specs
         {
             // Arrange
             HomePage.Navigate();
-            
+
             // Act
-            //HomePage.
+            HomePage.MarkListItem(3);
+            int actualNumberOfActiveListItems = HomePage.GetAllListItems().Length;
+            int expectedNumberOfActiveListItems = 6;
 
             // Assert
+            Assert.Equal(expectedNumberOfActiveListItems, actualNumberOfActiveListItems);
         }
 
         [Fact (DisplayName = "I can successfully mark multiple items as 'done'")]

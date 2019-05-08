@@ -37,6 +37,11 @@ namespace BB_Assignment.pageObjects
             ClickElement(_toDoListItem);
         }
 
+        public void MarkListItem(int index)
+        {
+            ClickElement(By.XPath(string.Format("//*[@id=\"todo_" + index + "\"]/input")));
+        }
+
         public void RemoveAllListItems() 
         {
             ElemCollection elements = Driver.FindElements(_toDoListItem);
